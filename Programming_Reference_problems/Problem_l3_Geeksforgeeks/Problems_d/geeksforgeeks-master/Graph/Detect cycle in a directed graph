@@ -1,0 +1,59 @@
+BFS --> Using Kahn's algo for topological sort 
+
+class Solution {
+  public:
+    // Function to detect cycle in a directed graph.
+    bool isCyclic(int V, vector<int> adj[]) {
+	    vector<int> indegree(V,0);
+	    queue<int> q;
+	    for(int i=0;i<V;i++){
+	        for(auto it: adj[i]){
+	            indegree[it]++;
+	        }
+	    }
+	    for(int i=0;i<V;i++){
+	        if(indegree[i]==0){
+	            q.push(i);
+	        }
+	    }
+	    int count=0;
+	    while(!q.empty()){
+	        int node=q.front();
+	        q.pop();
+	        count++;
+	        for(auto itr: adj[node]){
+	            indegree[itr]--;
+	            if(indegree[itr]==0) q.push(itr);
+	        }
+	    }
+	    if(count==V) return false;
+	    return true;
+   }
+};
+
+DFS -->
+
+bool checkcycle(int node, vector<int> adj[], int vis[],int dfsvis[]){
+       vis[node]=1;
+       dfsvis[node]=1;
+       for(auto it : adj[node]){
+           if(!vis[it]){
+               if(checkcycle(it,adj,vis,dfsvis))   return true;
+           }
+           else if(dfsvis[it]) return true;
+       }
+       dfsvis[node]=0;
+       return false;
+   }
+    bool isCyclic(int V, vector<int> adj[]) {
+        int vis[V]={0};
+        int dfsvis[V]={0};
+        for(int i=0;i<V;i++){
+            if(!vis[i]){
+                if(checkcycle(i,adj,vis,dfsvis))    
+                    return true;
+            }
+        }
+        return false;
+    }
+};

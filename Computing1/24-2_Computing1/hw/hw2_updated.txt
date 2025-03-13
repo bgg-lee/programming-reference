@@ -1,0 +1,11 @@
++ 2024.10.20 업데이트
+
+    instruction내 오타 수정: "BusinessAccount is closed" - > "BusinessAccount closed"
+
++ 2024.10.22 업데이트
+
+    clarification: deposit()과 withdraw()의 parameter인 amount는 0보다 커야함
+
++ 2024.10.28 업데이트
+
+    (Q 1.5.3) getAccount 메소드의 return은 raw pointer가 아닌 std::shared_ptr<BankAccount>가 맞습니다.

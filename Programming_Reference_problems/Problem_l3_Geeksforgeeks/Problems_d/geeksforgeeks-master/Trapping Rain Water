@@ -1,0 +1,43 @@
+int trappingWater(int h[], int n){
+    int *l,*r,*lm,*rm;
+    l=h; lm=h; r=&h[n-1]; rm=&h[n-1];
+    int sum=0;
+    int i=0;
+    while(l!=r){
+        if(*lm<*l){
+            lm=l;
+        }
+        if(*rm<*r){
+            rm=r;
+        }
+        if(*lm<*rm){
+            sum+=*lm-*l;
+            l++;
+        }
+        else{
+            sum+=*rm-*r;
+            r--;
+        }
+    }
+    return sum;
+}
+
+
+long long trappingWater(int arr[], int n){
+        long sum = 0;
+       int a[n];
+       a[0] = arr[0];
+       for(int i=1;i<n;i++){
+           a[i] = max(arr[i], a[i-1]);
+       }
+       a[n-1] = arr[n-1];
+       for(int i=n-2;i >= 0; i--){
+           a[i] = min(a[i],a[i+1]);
+           if(arr[i] > a[i])
+               a[i] = arr[i];
+       }
+       for(int i=0;i<n;i++){
+           sum += (a[i] - arr[i]); 
+       }
+       return sum;
+    }

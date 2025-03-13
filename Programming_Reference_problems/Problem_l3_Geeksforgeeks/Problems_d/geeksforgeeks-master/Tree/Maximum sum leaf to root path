@@ -1,0 +1,47 @@
+void path(Node* root,int sum,int &res){
+
+    if(!root) return;
+    sum+=root->data;
+    if(!root->left && !root->right) {
+        res=max(res,sum);
+        return;
+    }
+    path(root->left,sum,res);
+    path(root->right,sum,res);
+}
+int maxPathSum(Node* root)
+{
+    int res=INT_MIN;
+    int sum=0;
+    path(root,sum,res);
+    return res;
+}
+
+
+OR
+
+int RtoLSum(Node* root){
+
+    if(!root) return 0;
+    int l=RtoLSum(root->left);
+    int r=RtoLSum(root->right);
+    return (l>r?l:r)+root->data;
+}
+int maxPathSum(Node* root)
+{
+    int sum=RtoLSum(root);
+    return sum;
+}
+
+
+if path is to be printed -->
+
+bool PrintPath(Node* root , sum)
+{
+    if(sum==0) return true;
+    if(!root) return false;
+    bool l=PrintPath(root->left,sum-root->data);
+    bool r=PrintPath(root->right,sum-root->data);
+    if(l || r) cout<<root->key<<" ";
+    return l||r;
+}

@@ -1,0 +1,5 @@
+241129:
+pr1 디스크 : https://chaeyami.tistory.com/164 , 프로그래머스 디스크 컨트롤러
+pr2 스시 : ?? 찾기 어렵다 https://yabmoons.tistory.com/632 , https://sooz.tistory.com/102
+pr3 입국심사 :https://kaydaela.tistory.com/135 , 프로그래머스
+pr4 taxi : https://www.codewars.com/kata/5e1b37bcc5772a0028c50c5d?utm_source=chatgpt.com

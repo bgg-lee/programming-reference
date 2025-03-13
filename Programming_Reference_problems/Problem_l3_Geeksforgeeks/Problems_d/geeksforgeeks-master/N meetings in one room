@@ -1,0 +1,56 @@
+class Solution {
+  public:
+    // Function to find the maximum number of meetings that can
+    // be performed in a meeting room.
+    int maxMeetings(int n, int start[], int end[]) {
+        vector<pair<int,int>> meets;
+        for(int i=0;i<n;i++){
+            meets.push_back({end[i],start[i]});
+        }
+        sort(meets.begin(),meets.end());
+        int cnt = 0;
+        int last = -1;
+        for(int i=0;i<n;i++){
+            if(last<meets[i].second){
+                cnt++;
+                last = meets[i].first;
+            }
+        }
+        return cnt;
+    }
+};
+
+###############################################################################################################################3
+
+#include<bits/stdc++.h>
+using namespace std;
+struct activity{
+    int start , finish,pos;
+};
+bool comp(activity s1 , activity s2){
+    return (s1.finish < s2.finish);
+}
+int main()
+{
+	int t;
+    scanf("%d",&t);
+    while(t--){
+        int n;
+        cin >> n;
+        activity arr[n];
+        for(int i =0;i<n;i++) cin >> arr[i].start;
+        for(int i =0;i<n;i++) cin >> arr[i].finish;
+        for(int i =0;i<n;i++) arr[i].pos=i+1;
+        sort(arr,arr+n,comp);
+        int j=0;
+        cout << arr[0].pos;
+        for(int i=1;i<n;i++){
+            if(arr[i].start >= arr[j].finish){
+                j=i;
+                cout << " " << arr[i].pos;
+            }
+        }
+        cout << endl;
+    }
+	return 0;
+}

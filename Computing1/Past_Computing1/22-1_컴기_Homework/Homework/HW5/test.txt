@@ -1,0 +1,9 @@
+//#Header: description
+   #//metals no weight
+beryllium 4 9.012#
+magnesium// 12 24.305 ㄱㄴㄷㄹㅁㅂㅅㅇㅈㅊㅋㅌㅍㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎ
+calcium 20 //20.078 #Good for your health
+strontium 38 87.62 나는야 한글이지롱 한글이몇글자게궁금하지요정말로정말로
+barium 56 //#137.327 // It is heavy
+# This is comment line and  ignore
+radium 88 226

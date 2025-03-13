@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "ostream": "cpp",
+        "iostream": "cpp",
+        "vector": "cpp",
+        "stdlib.h": "c",
+        "bitset": "c",
+        "functional": "c",
+        "tuple": "cpp"
+    }
+}
